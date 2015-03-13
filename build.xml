@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="net.fender.collections" default="build" basedir=".">
+
+	<property environment="env"/>
+	<property file="build.properties"/>
+
+	<target name="build">
+		<delete quiet="true" includeemptydirs="true">
+			<fileset dir="bin" includes="**/*"/>
+		</delete>
+		<delete quiet="true" includeemptydirs="true">
+			<fileset dir="dist" includes="**/*"/>
+		</delete>
+		<mkdir dir="dist"/>
+		<javac srcdir="src"
+			destdir="bin"
+			debug="on"
+			source="1.6"
+  		/>
+  		<jar destfile="dist/${ant.project.name}-${version}.jar" basedir="bin"/>
+	</target>
+
+</project>
